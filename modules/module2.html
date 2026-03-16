@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 2 - Input and Conditionals</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Module 2: Input and Conditionals</h1>
+        <p class="subtitle">How the program decides when and where the player moves</p>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="module1.html">Module 1</a>
+            <a href="module2.html">Module 2</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>How does the player move?</h2>
+            <p>
+                The program checks whether a key is being pressed and uses
+                <code>if</code> statements to decide how the player position should change.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Movement logic</h3>
+            <pre>
+if (keys.ArrowUp) {
+  playerY -= playerSpeed;
+}
+
+if (keys.ArrowDown) {
+  playerY += playerSpeed;
+}
+
+if (keys.ArrowLeft) {
+  playerX -= playerSpeed;
+}
+
+if (keys.ArrowRight) {
+  playerX += playerSpeed;
+}
+      </pre>
+        </section>
+
+        <section class="card">
+            <h3>Boundary logic</h3>
+            <p>
+                These conditionals stop the player from moving outside the canvas.
+            </p>
+            <pre>
+if (playerX < 0) {
+  playerX = 0;
+}
+
+if (playerY < 0) {
+  playerY = 0;
+}
+
+if (playerX + playerSize > canvas.width) {
+  playerX = canvas.width - playerSize;
+}
+
+if (playerY + playerSize > canvas.height) {
+  playerY = canvas.height - playerSize;
+}
+      </pre>
+        </section>
+
+        <section class="card">
+            <h3>Try this</h3>
+            <p>
+                Temporarily comment out one of the boundary conditionals and refresh the page.
+                What changes in the player's behavior?
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Reflection prompt</h3>
+            <p>
+                Why does the player stop at the edge of the canvas instead of moving off screen?
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
