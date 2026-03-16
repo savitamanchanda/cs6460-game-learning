@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning CS1 Through Guided Game Creation</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Learning CS1 Through Guided Game Creation</h1>
+        <p>Milestone 1 Prototype</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="modules/module1.html">Module 1</a>
+            <a href="modules/module2.html">Module 2</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Early Playable Game</h2>
+            <p>
+                This prototype introduces program state, keyboard input, and conditionals.
+                Use the arrow keys to move the player square.
+            </p>
+        </section>
+
+        <section class="game-section">
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+            <div class="info-panel">
+                <h3>Current Game State</h3>
+                <p><strong>X:</strong> <span id="xPos">0</span></p>
+                <p><strong>Y:</strong> <span id="yPos">0</span></p>
+                <p><strong>Speed:</strong> <span id="speedValue">5</span></p>
+                <p><strong>Instructions:</strong> Use arrow keys to move.</p>
+            </div>
+        </section>
+
+        <section class="try-it">
+            <h3>What learners will modify</h3>
+            <ul>
+                <li>Change the player speed</li>
+                <li>Change the player size</li>
+                <li>Change the starting position</li>
+                <li>Change boundary behavior using conditionals</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
