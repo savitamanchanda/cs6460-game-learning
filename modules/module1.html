@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 1 - Program State</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Module 1: Program State</h1>
+        <p class="subtitle">How variables affect visible game behavior</p>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="module1.html">Module 1</a>
+            <a href="module2.html">Module 2</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>What is program state?</h2>
+            <p>
+                Program state means the values a program is currently storing.
+                In this game, variables such as <code>playerX</code>, <code>playerY</code>,
+                <code>playerSize</code>, <code>playerSpeed</code>, and <code>playerColor</code>
+                control what the learner sees on screen.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Code to modify</h3>
+            <p>Open <code>game.js</code> and find this section:</p>
+            <pre>
+// MODULE 1: values learners can change and experiment with
+let playerX = 80;
+let playerY = 120;
+let playerSize = 40;
+let playerSpeed = 5;
+let playerColor = "royalblue";
+      </pre>
+        </section>
+
+        <section class="card">
+            <h3>Try these changes</h3>
+            <ul>
+                <li>Change <code>playerSpeed</code> from <code>5</code> to <code>10</code></li>
+                <li>Change <code>playerSize</code> from <code>40</code> to <code>60</code></li>
+                <li>Change <code>playerColor</code> from <code>"royalblue"</code> to <code>"tomato"</code></li>
+                <li>Change the starting position values for <code>playerX</code> and <code>playerY</code></li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h3>Reflection prompt</h3>
+            <p>
+                Which variable had the biggest effect on the player's behavior, and why?
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
