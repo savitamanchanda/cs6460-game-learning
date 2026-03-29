@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 3 - Game Loop and Iteration</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Module 3: Game Loop and Iteration</h1>
+        <p class="subtitle">How the program keeps updating over time</p>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="module1.html">Module 1</a>
+            <a href="module2.html">Module 2</a>
+            <a href="module3.html">Module 3</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>What is the game loop?</h2>
+            <p>
+                The game loop is the part of the program that keeps running over and over.
+                It updates the game state, redraws the screen, and creates the sense of motion.
+            </p>
+            <p>
+                In this project, the loop makes the orange orb move automatically and updates
+                the frame counter continuously.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Code to study</h3>
+            <pre>
+function gameLoop() {
+  frameCounter++;
+
+  clearCanvas();
+  drawGrid();
+  drawInstructions();
+
+  updatePlayer();
+  updateOrb();
+
+  drawPlayer();
+  drawOrb();
+
+  updateInfoPanel();
+
+  requestAnimationFrame(gameLoop);
+}
+      </pre>
+        </section>
+
+        <section class="card">
+            <h3>Why iteration matters</h3>
+            <p>
+                The loop repeats these same steps many times each second. That repetition
+                is what makes the orb move smoothly across the screen instead of only changing once.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Try these changes</h3>
+            <ul>
+                <li>Change <code>orbSpeed</code> from <code>2.5</code> to <code>5</code></li>
+                <li>Change <code>orbRadius</code> from <code>15</code> to <code>25</code></li>
+                <li>Temporarily comment out <code>updateOrb();</code> and refresh the page</li>
+                <li>Watch how the frame counter keeps increasing while the loop runs</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h3>Reflection prompt</h3>
+            <p>
+                Why does the orange orb keep moving even when you are not pressing any keys?
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
