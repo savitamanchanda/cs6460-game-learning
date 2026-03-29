@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning CS1 Through Guided Game Creation</title>
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Learning CS1 Through Guided Game Creation</h1>
-        <p>Milestone 1 Prototype</p>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="modules/module1.html">Module 1</a>
-            <a href="modules/module2.html">Module 2</a>
-        </nav>
+      <h1>Learning CS1 Through Guided Game Creation</h1>
+      <p>Prototype with Modules 1, 2 and 3</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="modules/module1.html">Module 1</a>
+        <a href="modules/module2.html">Module 2</a>
+        <a href="modules/module2.html">Module 2</a>
+      </nav>
     </header>
 
     <main>
-        <section class="intro">
-            <h2>Early Playable Game</h2>
-            <p>
-                This prototype introduces program state, keyboard input, and conditionals.
-                Use the arrow keys to move the player square.
-            </p>
-        </section>
+      <section class="intro">
+        <h2>Playable Game Prototype</h2>
+        <p>
+          This prototype introduces program state, input, conditionals, and now
+          the game loop. Use the arrow keys to move the player square.
+        </p>
+        <p>
+          The blue square responds to keyboard input. The orange orb moves on
+          its own, which helps show how the game loop updates behavior every
+          frame.
+        </p>
+      </section>
 
-        <section class="game-section">
-            <canvas id="gameCanvas" width="600" height="400"></canvas>
+      <section class="game-section">
+        <canvas id="gameCanvas" width="600" height="400"></canvas>
 
-            <div class="info-panel">
-                <h3>Current Game State</h3>
-                <p><strong>X:</strong> <span id="xPos">0</span></p>
-                <p><strong>Y:</strong> <span id="yPos">0</span></p>
-                <p><strong>Speed:</strong> <span id="speedValue">5</span></p>
-                <p><strong>Size:</strong> <span id="sizeValue">0</span></p>
-                <p><strong>Color:</strong> <span id="colorValue">-</span></p>
-                <p><strong>Instructions:</strong> Use arrow keys to move.</p>
-            </div>
-        </section>
+        <div class="info-panel">
+          <h3>Current Game State</h3>
+          <p><strong>X:</strong> <span id="xPos">0</span></p>
+          <p><strong>Y:</strong> <span id="yPos">0</span></p>
+          <p><strong>Speed:</strong> <span id="speedValue">5</span></p>
+          <p><strong>Size:</strong> <span id="sizeValue">0</span></p>
+          <p><strong>Color:</strong> <span id="colorValue">-</span></p>
+          <p><strong>Frame Count:</strong> <span id="frameCount">0</span></p>
+          <p><strong>Orb Speed:</strong> <span id="orbSpeedValue">0</span></p>
+          <p><strong>Instructions:</strong> Use arrow keys to move.</p>
+        </div>
+      </section>
 
-        <section class="try-it">
-            <h3>What to modify:</h3>
-            <ul>
-                <li>Change the player speed</li>
-                <li>Change the player size</li>
-                <li>Change the starting position</li>
-                <li>Change boundary behavior using conditionals</li>
-            </ul>
-        </section>
+      <section class="try-it">
+        <h3>What to modify:</h3>
+        <ul>
+          <li>Change the player speed</li>
+          <li>Change the player size</li>
+          <li>Change the starting position</li>
+          <li>Change boundary behavior using conditionals</li>
+          <li>Change the orb speed to see how fast it moves</li>
+        </ul>
+      </section>
     </main>
 
     <script src="game.js"></script>
-</body>
-
+  </body>
 </html>
