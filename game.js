@@ -6,6 +6,8 @@ const yPosText = document.getElementById("yPos");
 const speedValueText = document.getElementById("speedValue");
 const sizeValueText = document.getElementById("sizeValue");
 const colorValueText = document.getElementById("colorValue");
+const frameCountText = document.getElementById("frameCount");
+const orbSpeedValueText = document.getElementById("orbSpeedValue");
 
 // MODULE 1: change values here to experiment 
 
@@ -14,6 +16,15 @@ let playerY = 120;
 let playerSize = 40;
 let playerSpeed = 5;
 let playerColor = "royalblue";
+
+
+// MODULE 3: Values for loop behavior
+
+let orbX = 120;
+let orbY = 300;
+let orbRadius = 15;
+let orbSpeed = 2.5;
+let frameCounter = 0;
 
 const keys = {
   ArrowUp: false,
@@ -56,6 +67,17 @@ function drawPlayer() {
   ctx.strokeRect(playerX, playerY, playerSize, playerSize);
 }
 
+function drawOrb() {
+  ctx.beginPath();
+  ctx.fillStyle = "orange";
+  ctx.arc(orbX, orbY, orbRadius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.strokeStyle = "#1e293b";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
 function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
@@ -96,20 +118,39 @@ function updatePlayer() {
   }
 }
 
+function updateOrb() {
+  // MODULE 3: iteration behavior
+  orbX += orbSpeed;
+
+  if (orbX + orbRadius > canvas.width || orbX - orbRadius < 0) {
+    orbSpeed *= -1;
+  }
+}
+
 function updateInfoPanel() {
   xPosText.textContent = playerX;
   yPosText.textContent = playerY;
   speedValueText.textContent = playerSpeed;
   sizeValueText.textContent = playerSize;
   colorValueText.textContent = playerColor;
+  frameCountText.textContent = frameCounter;
+  orbSpeedValueText.textContent = orbSpeed;
 }
 
 function gameLoop() {
+  frameCounter++;
+
   clearCanvas();
   drawGrid();
   drawInstructions();
+
   updatePlayer();
+  updateOrb();
+
+
   drawPlayer();
+  drawOrb();
+  
   updateInfoPanel();
 
   requestAnimationFrame(gameLoop);
