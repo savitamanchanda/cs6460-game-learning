@@ -8,8 +8,11 @@ const sizeValueText = document.getElementById("sizeValue");
 const colorValueText = document.getElementById("colorValue");
 const frameCountText = document.getElementById("frameCount");
 const orbSpeedValueText = document.getElementById("orbSpeedValue");
+const scoreValueText = document.getElementById("scoreValue");
+const collisionStatusText = document.getElementById("collisionStatus");
 
-// MODULE 1: change values here to experiment 
+// MODULE 1: Program state
+// Values for player state
 
 let playerX = 80;
 let playerY = 120;
@@ -17,14 +20,21 @@ let playerSize = 40;
 let playerSpeed = 5;
 let playerColor = "royalblue";
 
-
-// MODULE 3: Values for loop behavior
+// Values for orb state
 
 let orbX = 120;
 let orbY = 300;
 let orbRadius = 15;
 let orbSpeed = 2.5;
 let frameCounter = 0;
+
+// Values for game state
+
+let score = 0;
+let collisionHappened = false;
+
+// MODULE 2: Input + conditionals
+// keyboard state
 
 const keys = {
   ArrowUp: false,
@@ -56,6 +66,7 @@ function drawInstructions() {
   ctx.fillStyle = "#64748b";
   ctx.font = "14px Arial";
   ctx.fillText("Use arrow keys to move the square", 16, 24);
+  ctx.fillText("Collect the orange orb to increase score", 16, 44);
 }
 
 function drawPlayer() {
@@ -82,8 +93,9 @@ function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+// conditionals for movement controls
+
 function updatePlayer() {
-  // MODULE 2: conditionals for movement controls 
   if (keys.ArrowUp) {
     playerY -= playerSpeed;
   }
@@ -100,7 +112,12 @@ function updatePlayer() {
     playerX += playerSpeed;
   }
 
-  // Boundary conditionals
+  keepPlayerInsideCanvas();
+}
+
+// boundary conditionals
+
+function keepPlayerInsideCanvas() {
   if (playerX < 0) {
     playerX = 0;
   }
@@ -118,13 +135,56 @@ function updatePlayer() {
   }
 }
 
+// MODULE 3: Game loop + iteration
+
 function updateOrb() {
-  // MODULE 3: iteration behavior
+
   orbX += orbSpeed;
 
   if (orbX + orbRadius > canvas.width || orbX - orbRadius < 0) {
     orbSpeed *= -1;
   }
+}
+
+// MODULE 4: Collision + scoring 
+
+function playerTouchesOrb() {
+  const orbLeft = orbX - orbRadius;
+  const orbRight = orbX + orbRadius;
+  const orbTop = orbY - orbRadius;
+  const orbBottom = orbY + orbRadius;
+
+  const playerLeft = playerX;
+  const playerRight = playerX + playerSize;
+  const playerTop = playerY;
+  const playerBottom = playerY + playerSize;
+
+  return (
+    playerRight > orbLeft &&
+    playerLeft < orbRight &&
+    playerBottom > orbTop &&
+    playerTop < orbBottom
+  );
+}
+
+function handleCollision() {
+  collisionHappened = false;
+
+  if (playerTouchesOrb()) {
+    score++;
+    collisionHappened = true;
+    resetOrbPosition();
+  }
+}
+
+function resetOrbPosition() {
+  const minX = orbRadius;
+  const maxX = canvas.width - orbRadius;
+  const minY = 80;
+  const maxY = canvas.height - orbRadius;
+
+  orbX = Math.floor(Math.random() * (maxX - minX)) + minX;
+  orbY = Math.floor(Math.random() * (maxY - minY)) + minY;
 }
 
 function updateInfoPanel() {
@@ -135,7 +195,12 @@ function updateInfoPanel() {
   colorValueText.textContent = playerColor;
   frameCountText.textContent = frameCounter;
   orbSpeedValueText.textContent = orbSpeed;
+  scoreValueText.textContent = score;
+  collisionStatusText.textContent = collisionHappened ? "Yes" : "No";
 }
+
+// MODULE 3: Main game loop 
+// MODULE 5: Functions
 
 function gameLoop() {
   frameCounter++;
@@ -146,7 +211,7 @@ function gameLoop() {
 
   updatePlayer();
   updateOrb();
-
+  handleCollision();
 
   drawPlayer();
   drawOrb();
@@ -171,3 +236,7 @@ window.addEventListener("keyup", (event) => {
 });
 
 gameLoop();
+
+// MODULE 6: Debugging
+// Inspect the functions above to 
+// identify why behaviors changes or breaks
