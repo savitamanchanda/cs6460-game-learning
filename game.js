@@ -150,7 +150,7 @@ function gameLoop() {
 
   drawPlayer();
   drawOrb();
-  
+
   updateInfoPanel();
 
   requestAnimationFrame(gameLoop);
@@ -158,12 +158,14 @@ function gameLoop() {
 
 window.addEventListener("keydown", (event) => {
   if (event.key in keys) {
+    event.preventDefault();
     keys[event.key] = true;
   }
 });
 
 window.addEventListener("keyup", (event) => {
   if (event.key in keys) {
+    event.preventDefault();
     keys[event.key] = false;
   }
 });
