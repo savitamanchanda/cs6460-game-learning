@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 5 - Functions</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Module 5: Functions and Code Organization</h1>
+        <p class="subtitle">Why we split game behavior into reusable pieces</p>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="module1.html">Module 1</a>
+            <a href="module2.html">Module 2</a>
+            <a href="module3.html">Module 3</a>
+            <a href="module4.html">Module 4</a>
+            <a href="module5.html">Module 5</a>
+            <a href="module6.html">Module 6</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Why use functions?</h2>
+            <p>
+                As programs grow, it becomes harder to understand one long block of code.
+                Functions help organize logic into smaller parts with clear responsibilities.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Examples from the game</h3>
+            <ul>
+                <li><code>updatePlayer()</code> handles movement</li>
+                <li><code>updateOrb()</code> handles automatic orb motion</li>
+                <li><code>playerTouchesOrb()</code> checks collision</li>
+                <li><code>resetOrbPosition()</code> places the orb somewhere new</li>
+                <li><code>updateInfoPanel()</code> refreshes the displayed values</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h3>Code to study</h3>
+            <pre>
+function handleCollision() {
+  collisionHappened = false;
+
+  if (playerTouchesOrb()) {
+    score++;
+    collisionHappened = true;
+    resetOrbPosition();
+  }
+}
+      </pre>
+        </section>
+
+        <section class="card">
+            <h3>What this improves</h3>
+            <p>
+                Breaking the program into functions makes the game loop easier to read because
+                each function handles one part of the behavior.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Reflection prompt</h3>
+            <p>
+                Why is the game loop easier to understand when collision logic is moved into a separate function?
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
