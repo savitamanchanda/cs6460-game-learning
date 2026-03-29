@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 4 - Collision and Scoring</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Module 4: Collision Detection and Scoring</h1>
+        <p class="subtitle">How the program checks when two objects overlap</p>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="module1.html">Module 1</a>
+            <a href="module2.html">Module 2</a>
+            <a href="module3.html">Module 3</a>
+            <a href="module4.html">Module 4</a>
+            <a href="module5.html">Module 5</a>
+            <a href="module6.html">Module 6</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>What is collision detection?</h2>
+            <p>
+                Collision detection means checking whether two game objects touch or overlap.
+                In this project, the player earns a point when the blue square touches the orange orb.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Code to study</h3>
+            <pre>
+function playerTouchesOrb() {
+  const orbLeft = orbX - orbRadius;
+  const orbRight = orbX + orbRadius;
+  const orbTop = orbY - orbRadius;
+  const orbBottom = orbY + orbRadius;
+
+  const playerLeft = playerX;
+  const playerRight = playerX + playerSize;
+  const playerTop = playerY;
+  const playerBottom = playerY + playerSize;
+
+  return (
+    playerRight > orbLeft &&
+    playerLeft < orbRight &&
+    playerBottom > orbTop &&
+    playerTop < orbBottom
+  );
+}
+      </pre>
+        </section>
+
+        <section class="card">
+            <h3>Why scoring changes</h3>
+            <p>
+                When a collision is detected, the score increases and the orb is reset to a new position.
+            </p>
+            <pre>
+if (playerTouchesOrb()) {
+  score++;
+  collisionHappened = true;
+  resetOrbPosition();
+}
+      </pre>
+        </section>
+
+        <section class="card">
+            <h3>Try these changes</h3>
+            <ul>
+                <li>Change the orb radius and see how collision becomes easier or harder</li>
+                <li>Move the player into the orb and watch the score update</li>
+                <li>Comment out <code>score++</code> and see what changes</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h3>Reflection prompt</h3>
+            <p>
+                Why does the score increase only when the square touches the orb?
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
