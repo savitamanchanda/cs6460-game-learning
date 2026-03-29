@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 6 - Debugging</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Module 6: Debugging and Reasoning</h1>
+        <p class="subtitle">Finding and explaining why the program behaves unexpectedly</p>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="module1.html">Module 1</a>
+            <a href="module2.html">Module 2</a>
+            <a href="module3.html">Module 3</a>
+            <a href="module4.html">Module 4</a>
+            <a href="module5.html">Module 5</a>
+            <a href="module6.html">Module 6</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>What is debugging?</h2>
+            <p>
+                Debugging means identifying why a program behaves differently from what you expected
+                and then tracing that behavior back to the code.
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Debugging activity 1</h3>
+            <p>
+                Imagine the orb stops moving after the game loads. Look at this code:
+            </p>
+            <pre>
+function gameLoop() {
+  frameCounter++;
+
+  clearCanvas();
+  drawGrid();
+  drawInstructions();
+
+  updatePlayer();
+  // updateOrb();
+
+  drawPlayer();
+  drawOrb();
+
+  updateInfoPanel();
+
+  requestAnimationFrame(gameLoop);
+}
+      </pre>
+            <p>
+                What is causing the issue?
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Debugging activity 2</h3>
+            <p>
+                Imagine the player can move off screen. Look at this code:
+            </p>
+            <pre>
+function keepPlayerInsideCanvas() {
+  if (playerX < 0) {
+    playerX = 0;
+  }
+
+  if (playerY < 0) {
+    playerY = 0;
+  }
+}
+      </pre>
+            <p>
+                What boundary checks are missing?
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Debugging activity 3</h3>
+            <p>
+                Imagine the score never changes. Which function would you inspect first and why?
+            </p>
+        </section>
+
+        <section class="card">
+            <h3>Reflection prompt</h3>
+            <p>
+                When the game behavior does not match your expectation, what part of the code would you check first?
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
